@@ -9,7 +9,7 @@ namespace FormTest.Controllers
     public class FormController : ControllerBase
     {
         private readonly IFormService _formService;
-        public FormController(IFormService formService) 
+        public FormController(IFormService formService)
         {
             _formService = formService;
         }
@@ -24,6 +24,12 @@ namespace FormTest.Controllers
         public async Task<Form> GetFormAsync(string id)
         {
             return await _formService.GetFormAsync(id);
+        }
+
+        [HttpPut("{id}")]
+        public async Task<string> UpdateFormAsync(string id, [FromBody] FormRequest request)
+        {
+            return await (_formService.UpdateFormAsync(id, request));
         }
     }
 }

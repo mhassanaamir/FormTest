@@ -11,8 +11,8 @@ namespace FormTest.Models
         public string LastName { get; set; } = string.Empty;
         [Required]
         public string Email { get; set; } = string.Empty;
-        public List<AdditionalQuestion>? AdditionalQuestions { get; set; }
-        public List<CustomQuestion>? CustomQuestions { get; set; }
+        public List<AdditionalQuestionRequest>? AdditionalQuestions { get; set; }
+        public List<CustomQuestionRequest>? CustomQuestions { get; set; }
 
     }
 }
