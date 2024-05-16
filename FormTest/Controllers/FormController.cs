@@ -1,4 +1,5 @@
-﻿using FormTest.Models;
+﻿using FormTest.Dtos;
+using FormTest.Models;
 using FormTest.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -29,7 +30,13 @@ namespace FormTest.Controllers
         [HttpPut("{id}")]
         public async Task<string> UpdateFormAsync(string id, [FromBody] FormRequest request)
         {
-            return await (_formService.UpdateFormAsync(id, request));
+            return await _formService.UpdateFormAsync(id, request);
+        }
+
+        [HttpPost("submit")]
+        public async Task<string> SubmitFormAsync(FormSubmissionRequest request)
+        {
+            return await _formService.SubmitFormAsync(request);
         }
     }
 }

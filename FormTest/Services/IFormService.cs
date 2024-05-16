@@ -1,4 +1,5 @@
-﻿using FormTest.Models;
+﻿using FormTest.Dtos;
+using FormTest.Models;
 
 namespace FormTest.Services
 {
@@ -7,6 +8,6 @@ namespace FormTest.Services
         public Task<string> CreateFormAsync(FormRequest request);
         public Task<string> UpdateFormAsync(string id, FormRequest request);
         public Task<Form> GetFormAsync(string id);
-        //public Task<string> SubmitFormAsync(FormResponse request);
+        public Task<string> SubmitFormAsync(FormSubmissionRequest request);
     }
 }

@@ -1,4 +1,5 @@
-﻿using FormTest.Enums;
+﻿using FormTest.Dtos;
+using FormTest.Enums;
 using FormTest.Models;
 
 namespace FormTest.Services
@@ -139,6 +140,25 @@ namespace FormTest.Services
 
             return "form updated successfully";
 
+        }
+
+        public async Task<string> SubmitFormAsync(FormSubmissionRequest request)
+        {
+            var submission = new FormResponse
+            {
+                FormId = request.FormId,
+                FirstName = request.FirstName,
+                LastName = request.LastName,
+                Email = request.Email,
+                AdditionalQuestionsResponses = request.AdditionalQuestionsResponses,
+                CustomQuestionsResponses = request.CustomQuestionsResponses,
+                Id = Guid.NewGuid().ToString()
+            };
+
+            await _db.FormResponses.AddAsync(submission);
+
+            await _db.SaveChangesAsync();
+            return $"Submitted successfully with id:{submission.Id}";
         }
     }
 }
