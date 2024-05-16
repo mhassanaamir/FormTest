@@ -58,6 +58,8 @@ namespace FormTest.Services
 
             var form = new Form()
             {
+                ProgramTitle = request.ProgramTitle,
+                ProgramDescription = request.ProgramDescription,
                 FirstName = request.FirstName,
                 LastName = request.LastName,
                 Email = request.Email,
@@ -125,6 +127,8 @@ namespace FormTest.Services
                 });
             }
 
+            form.ProgramTitle = request.ProgramTitle;
+            form.ProgramDescription = request.ProgramDescription;
             form.FirstName = request.FirstName;
             form.LastName = request.LastName;
             form.Email = request.Email;
